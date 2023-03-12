@@ -7,7 +7,7 @@ module.exports = {
       .catch((err) => res.status(500).json(err));
   },
   getSingleThought(req, res) {
-    Course.findOne({ _id: req.params.thoughtId })
+    Thought.findOne({ _id: req.params.thoughtId })
       .select("-__v")
       .then((thought) =>
         !thought ? res.status(404).json({ message: "No thought with that ID" }) : res.json(thought)
